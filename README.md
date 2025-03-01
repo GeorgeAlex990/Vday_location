@@ -1,4 +1,4 @@
 # Vday
 
-https://georgealex990.github.io/Vday/V-day.html
-https://georgealex990.github.io/Vday/sender.html
+https://georgealex990.github.io/Vday_location/V-day.html
+https://georgealex990.github.io/Vday_location/sender.html
