@@ -44,7 +44,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="getLocation()">
     <h1>Will you be my Valentine? 💖</h1>
     <img src="https://georgealex990.github.io/Vday/V-day_photo.jpg" alt="Cute Valentine's Day Photo">
     <div class="container">
@@ -54,6 +54,21 @@
     <p id="senderMessage"></p>
     
     <script>
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+        
         let urlParams = new URLSearchParams(window.location.search);
         let senderName = urlParams.get('sender');
         if (senderName) {
