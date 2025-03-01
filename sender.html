@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Custom Valentine's Message</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            background-color: #ffe6e6;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        input[type="text"] {
+            font-size: 18px;
+            padding: 10px;
+            width: 300px;
+            border-radius: 10px;
+            border: 2px solid #ff4d6d;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #ff4d6d;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Your Custom Valentine's Message 💖</h1>
+    <input type="text" id="senderName" placeholder="Enter your name here">
+    <button onclick="generateLink()">Generate Link</button>
+    <p id="linkContainer"></p>
+    
+    <script>
+        function generateLink() {
+            let senderName = document.getElementById("senderName").value;
+            let encodedName = encodeURIComponent(senderName);
+            let link = `https://georgealex990.github.io/Vday/V-day.html?sender=${encodedName}`;
+            document.getElementById("linkContainer").innerHTML = `<a href="${link}">Your Custom Valentine's Message</a>`;
+        }
+    </script>
+</body>
+</html>

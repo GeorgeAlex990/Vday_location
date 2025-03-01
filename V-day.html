@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            background-color: #ffe6e6;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        img {
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+            border-radius: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        #no {
+            background-color: #999;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? 💖</h1>
+    <img src="https://georgealex990.github.io/Vday/V-day_photo.jpg" alt="Cute Valentine's Day Photo">
+    <div class="container">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <p id="senderMessage"></p>
+    
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let senderName = urlParams.get('sender');
+        if (senderName) {
+            document.getElementById("senderMessage").innerText = `This message is from: ${decodeURIComponent(senderName)}`;
+        }
+
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let size = 20;
+        let noClickCount = 0;
+
+        noButton.addEventListener("click", function() {
+            size += 10;
+            yesButton.style.fontSize = size + "px";
+            noClickCount++;
+            if (noClickCount >= 10) {
+                noButton.style.display = "none";
+                alert("Ahw, guess I'll have to eat all the chocolates by myself! 🍫😭");
+            }
+        });
+
+        yesButton.addEventListener("click", function() {
+            let senderName = urlParams.get('sender');
+            alert(`Yay! 💖 See you on Valentine's Day! \nXOXO from ${decodeURIComponent(senderName)}`);
+        });
+    </script>
+</body>
+</html>
